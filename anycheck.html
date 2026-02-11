@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Аня ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff5f8a, #ff8fab);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 20px;
+    margin-top: 6vh;
+}
+
+img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 2.1em;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.15em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+button {
+    background: white;
+    color: #ff4f7b;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+#noBtn {
+    position: relative;
+}
+
+.heart {
+    position: fixed;
+    bottom: -10px;
+    font-size: 22px;
+    animation: float 5s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+}
+
+#final {
+    margin-top: 18vh;
+    font-size: 1.4em;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+
+    <!-- ТВОЁ ФОТО -->
+    <img src="me.jpg" alt="Это я 😌">
+
+    <h1>Анечка, признаюсь 😌</h1>
+
+    <!-- ТЕКСТ -->
+    <p>
+    Мы тогда просто зашли…<br>
+    ну ты знаешь…<br>
+    <b>посмотреть 👀</b><br><br>
+
+    Кости бросить, полистать,<br>
+    там, где обычно ищут одно 😏<br>
+    а в итоге нашли <b>любовь</b> ❤️
+    </p>
+
+    <button onclick="openTruth()">Нажми, если не жалеешь 😏</button>
+
+    <div id="truth" class="hidden">
+        <p>
+        А в итоге нашли не «это»,<br>
+        а тепло, заботу и друг друга 💕<br><br>
+
+        И знаешь что?<br>
+        Я бы снова «зашёл просто посмотреть» —<br>
+        просто теперь <b>друг друга мониторим</b> 😘
+        </p>
+
+        <p><b>Будешь моей валентинкой? 💘</b></p>
+
+        <button onclick="yes()">Да ❤️</button>
+        <button id="noBtn" onmouseover="runAway()">Нет 🙄</button>
+    </div>
+
+</div>
+
+<!-- ФИНАЛ -->
+<div id="final" class="hidden">
+    💋💋💋<br><br>
+
+    <b>14 февраля 2026</b><br>
+    день, который хочется сохранить ❤️<br><br>
+
+    У нас пока нет общей фотографии,<br>
+    но зато есть начало.<br>
+    А всё настоящее —<br>
+    <b>ещё впереди</b> ✨<br><br>
+
+    И если ты когда-нибудь откроешь эту страницу снова —<br>
+    просто знай:<br>
+    <b>я рядом. Всегда.</b> ❤️
+</div>
+
+<script>
+function openTruth() {
+    document.getElementById("truth").style.display = "block";
+}
+
+function runAway() {
+    const btn = document.getElementById("noBtn");
+    btn.style.left = Math.random() * 200 - 100 + "px";
+    btn.style.top = Math.random() * 200 - 100 + "px";
+}
+
+function yes() {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("final").style.display = "block";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
